@@ -1,0 +1,255 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 0 10px; */
+    min-height: 100vh;
+    background: #C0C0C0;
+    background-image: url("./assets/background.jpg");
+   
+}
+
+.container{
+    width: 690px; /*Added by own*/
+    /* max-width: 690px; */
+    /* width: 100%; */
+    padding: 30px;
+    background: #34302D;
+    border-radius: 7px;
+    /* box-shadow: 0 10px 20px rgba(0,0,0,0.01); */
+}
+.wrapper{
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    background: white;
+}
+
+
+
+.text-input textarea{
+    height: 250px;
+    width: 100%;
+    border: none;
+    /* outline: none; */
+    resize: none;
+    background: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    /* border-radius: 5px; */
+}
+
+.text-input{
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.text-input .text2{
+    /* border-radius: 0px; */  /*this is when you apply border-radius: 5px in .text-input textarea*/
+    border-left: 1px solid #ccc;
+}
+
+.controls{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background: #C0C0C0;
+}
+
+.icons{
+    color: #34302D;
+    font-size: 14px;
+    cursor: pointer;
+    width: 50px;
+    text-align: center;
+
+}
+
+li{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+select{
+    border: none;
+    outline: none;
+    /* background: none; */
+    font-size: 18px;
+}
+
+.exchange{
+    color: #34302D;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.from .icons{
+    border-right: 1px solid #34302D;
+    padding-right: 15px;
+}
+.to .icons{
+    border-left: 1px solid #34302D;
+    padding-left: 15px;
+}
+
+button{
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    border: none;
+    /* outline: none; */
+    cursor: pointer;
+    background: #C0C0C0;
+    color: #34302D;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+button:hover{
+    background-color: #cccccc;
+    box-shadow: 5px 5px 18px #c0c0c086;
+}
+
+button:active {
+    background-color: #C0C0C0;
+    transform: translateY(0.5px);
+}
+
+.right{
+    margin-right: 25px;
+}
+.left{
+    margin-left: 25px
+}
+
+.text-input textarea::placeholder{
+    color: #34302D;
+}
+
+fa, .far, .fas {
+    padding-left: 10px;
+}
+
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.far {
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    background: #C0C0C0;
+  }
+
+  .form{
+    display: none;
+    position: absolute;
+    top: 45%;
+    left: 87.5%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 20px 30px;
+    background: #c0c0c0;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.15);
+    border-radius: 10px;
+
+  } 
+
+
+  .form h2{
+    text-align: center;
+    color: #222;
+    margin: 10px 0px 20px;
+    font-size: 25px;
+  }
+
+  .form .form-element{
+    margin: 15px 0px;
+    padding-right: 12px;
+  }
+
+  .form .form-element label{
+    font-size: 14px;
+    color: #222;
+  }
+
+  .form .form-element input[type=text], input[type=number]{
+    margin-top: 5px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+  }
+
+  .form .form-element textarea{
+    width: 100%;
+    outline: none;
+    border: 1px solid #aaa;
+    padding: 10px;
+  }
+
+  .form .form-element button{
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #222;
+    color: #eee;
+    margin-left: 10px;
+  }
+
+  .form-container .btn:hover, .far:hover {
+    opacity: 0.8;
+  }
+
+  /* .close-btn{
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 10px;
+    background: #ff0000;
+    padding: 3px 5px;
+  }
+
+  .close-btn:hover{
+    opacity: 0.8;
+  } */
+
+  .close-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #222;
+    color: #eee;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+
+  .close-btn:hover{
+    opacity: 0.8;
+  } 
+
+  .fa-comment:hover{
+    opacity: 1;
+  }
+
+
+

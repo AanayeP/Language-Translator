@@ -1,0 +1,235 @@
+<?php include './php/sendmail.php';?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome CDN Link for Icons [This is to add icons in html] -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <title>Translator</title>
+    <!-- to link css file -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- favicon [rel=related href=kink or path of file]-->
+    <link rel="icon" href="./asset/favicon.jpeg" type="image/jpeg">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="wrapper">
+
+            <div class="text-input">
+                <textarea type="text" id="text_1" class="text1" placeholder="Enter text"></textarea>
+                <textarea type="text" id="text_2" class="text2" placeholder="Translation" readonly disabled></textarea>
+                <!--see about readonly-->
+            </div>
+
+            <ul class="controls">
+                <li class="row from">
+                    <div class="icons">
+                        <i id="from" class="fas fa-volume-up"></i>
+                        <i id="voice" class='fas fa-microphone'></i>
+                    </div>
+                    <select class="left"></select>
+                </li>
+                <li class="exchange">
+                    <i id="to" class="fas fa-exchange-alt"></i>
+                </li>
+                <li class="row to">
+                    <select class="right"></select>
+                    <div class="icons">
+                        <i class="fas fa-volume-up"></i>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <button>Translate Text</button>
+
+
+    </div>
+
+    <div class="icon-popup" onclick="myFunction()"></div>
+    <i class='far fa-comment' id="myPopup" style='font-size:60px;color:#222' onclick="myFunction()"></i>
+    </div>
+
+    <div class="form" id="myForm">
+        <!-- <form action="mailto:ananye.techexactly@gmail.com" method="post" enctype="text/plain" class="form-container" -->
+        <form action="php/sendmail.php" method="post" class="form-container">
+
+            <div class="form-element">
+                <!-- <label class="close-btn fas fa-times" onclick="closeForm"></label> --> <!--method1-->
+                <div class="close-btn" onclick="closeForm()">&times;</div> <!--method2-->
+            </div>
+            <h2>Give us your feedback</h2>
+
+            <div class="form-element">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" oninput="this.value = this.value.replace(/[^a-z, ]/, '')"
+                    placeholder="Enter name">
+            </div>
+            <div class="form-element">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Enter email">
+            </div>
+            <div class="form-element">
+                <label for="address">Address</label>
+                <textarea type="text" id="address" name="address" placeholder="Enter address"></textarea>
+            </div>
+            <div class="form-element">
+                <label for="mobile">Mobile</label>
+                <input type="number" id="mobile" name="mobile" placeholder="Enter mobile">
+            </div>
+            <div class="form-element">
+                <label>Feedback</label>
+                <textarea type="text" id="feedback" name="feedback" placeholder="Enter feedback"></textarea>
+            </div>
+
+            <div class="form-element">
+                <button  id="submit" class="btn">Submit</button>
+                <!-- <input type="button" value="Send Mail" onclick="sendMail()" /> -->
+            </div>
+        </form>
+
+    </div>
+
+
+    <script>
+
+        //For - click on screen to close form
+        /*window.addEventListener('mouseup', function(event){
+            var box = document.getElementById('myForm');
+            if(event.target != box && event.target.parentNode != box){
+                box.style.display = 'none';
+
+            }
+        });*/
+
+        //To restrict the use of -,+,e in mobile input
+        var inputBox = document.getElementById("mobile");
+
+        var invalidChars = [
+            "-",
+            "+",
+            "e",
+        ];
+
+        inputBox.addEventListener("keydown", function (e) {
+            if (invalidChars.includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+        //End
+
+        //start B
+        // var btn = document.getElementById('submit');
+        // btn.addEventListener('click', function(e){
+        //     e.preventDefault()
+        //     var name  = document.getElementById("name").value;
+        //     var email  = document.getElementById("email").value;
+        //     var address  = document.getElementById("address").value;
+        //     var mobile  = document.getElementById("mobile").value;
+        //     var feedback  = document.getElementById("feedback").value;
+        //     var body = 'name: ' + name + '<br/> email: ' + email + '<br/> address: ' + address + '<br/> mobile number: ' + mobile +'<br/> feedback: ' + feedback;
+            
+        //Start C
+            // Email.send({
+            //     SecureToken: "<d4e5f769-d133-4013-a420-9b33410ec5ff>",
+            //     To: '<ananyepoddar13@gmail.com>',
+            //     From: "<ananye.techexactly@gmail.com>",
+            //     Subject: "Sending Email using javascript with SMTPJS",
+            //     Body: "If you are reading this, dont forget to applaud kaustubh72",
+            //     Attachments: [{
+            //         name: "File_Name_with_Extension",
+            //         path: "Full Path of the file"
+            //     }]
+            // })
+            // .then(function (message) {
+            //     alert(message)
+            // });
+        //End C
+            
+        //Start D
+            // Email.send({
+            //     Host: "smtp.elasticemail.com",
+            //     Username: "ananye.techexactly@gmail.com",
+            //     Password: "jlavpybukrftpxye",
+            //     // Password: "379EB1D6108738FA48EA195F7A02BED2E6C8",
+            //     To: "ananye.techexactly@gmail.com",
+            //     From: email,
+            //     Subject: "Feedback",
+            //     Body: body
+            // }).then(
+
+            //     message => alert(message)
+            // );
+        // End D
+        // })
+        //End B
+        
+            
+
+        function myFunction() {
+
+            document.getElementById("myForm").style.display = "block";
+            // if (document.getElementById("myForm").value = "none") {
+            //     document.getElementById("myForm").style.display = "block";
+            // } else if (document.getElementById("myForm").value = "block") {
+            //     document.getElementById("myForm").style.display = "none";
+            // }
+        }
+
+        function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+        }
+
+        // function sendemail() {
+        //     var name  = document.getElementById("name").value;
+        //     var email  = document.getElementById("email").value;
+        //     var address  = document.getElementById("address").value;
+        //     var mobile  = document.getElementById("mobile").value;
+        //     var feedback  = document.getElementById("feedback").value;
+        //     var body = 'name: ' + name + '<br/> email: ' + email + '<br/> address: ' + address + '<br/> mobile number: ' + mobile +'<br/> feedback: ' + feedback;
+        //     Email.send({
+        //         Host: "smtp.gmail.com",
+        //         Username: "ananye.techexactly@gmail.com",
+        //         Password: "thzonrwtrqxeiijj",
+        //         // Password: "379EB1D6108738FA48EA195F7A02BED2E6C8",
+        //         To: 'ananyepoddar13@gmail.com',
+        //         From: email,
+        //         Subject: "Feedback",
+        //         Body: body
+        //     }).then(
+        //         message => alert(message)
+        //     );
+
+        //     // Email.send({
+        //     //     SecureToken: "872a1335-54ca-45e5-8950-4911bbe404c6",
+        //     //     To: 'ananye.techexactly@gmail.com',
+        //     //     From: "ananye.techexactly@gmail.com",
+        //     //     Subject: "subjecy",
+        //     //     Body: "Hello"
+        //     // }).then(
+        //     //     message => alert(message)
+        //     // );
+        // }
+
+        // function closeForm() {
+        //     document.getElementById("myForm").style.display = "none";
+        // }
+
+    </script>
+
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="./js/countries.js"></script>
+    <script src="./js/script2.js"></script>
+    <!-- <script>window.alert("Kaam Karo")</script> -->
+
+
+
+</body>
+
+</html>
